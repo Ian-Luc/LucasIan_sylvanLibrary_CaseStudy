@@ -1,0 +1,24 @@
+.buttonbox button{
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonbox{
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.videoplayer{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+video{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}

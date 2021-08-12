@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+div.top-header{
+    background-color: cadetblue;
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    filter: drop-shadow(0px 8px 5px rgb(12, 70, 70));
+    opacity: 100%;
+    font-family: "Roboto";
+}
+
+#chibinez{
+    position: relative;
+    float: left;
+    margin: -50px;
+}
+
+div.header-item{
+    display: flex;
+    padding: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 10000;
+    color: white;
+    flex: 1;
+    font-family: "Roboto";
+}
+
+.header-item nav ul {
+    display: flex;
+    font-family: "Roboto";
+}
+
+.header-item nav ul li a:hover {
+    background-color: rgb(100,100,100);
+    color: #ffffff;
+    font-family: "Roboto";
+}
+
+.header-item nav ul li a {
+    color: white;
+    padding: 21px 37px;
+    border-radius: 3px;
+    font-family: "Roboto";
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.header-item h1{
+    padding-left: 10px;
+    font-family: "Roboto";
+}
+
+#rat:hover{
+    background-image: url(./../images/postrat.gif);
+    background-size: 101%;
+    background-position-y: 80%;
+    background-position-x: center;
+    color: rgba(0, 0, 0, 0%);
+}

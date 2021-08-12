@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@300&display=swap');
+
+.main-container{
+    text-align: center;
+    font-family: "Lexend";
+}
+
+#topspace{
+    height: 100px;
+}
+
+.archetypeheader{
+    font-size: larger;
+    width: 30%;
+    background-color: rgba(190, 190, 190, 65%);
+    border-radius: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.archetypespan{
+    margin: 10px;
+    display: flex;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.archetypelogo img{
+    height: 150px;
+    width: 150px;
+    margin: 2px;
+    border: 5px solid black;
+    border-radius: 15%;
+}
+
+.archetypetext {
+    text-align: left;
+    font-size: 20px;
+    padding: 5px;
+    background-color: rgba(190, 190, 190, 65%);
+    border-radius: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.archetypename{
+    font-style: underline;
+}
+
+body{
+    background-image: url("./../images/lightnoughts.png");
+    background-size: auto;
+}
