@@ -6,41 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - MtG Tech Finder</title>
+    <title>About - Tech Finder</title>
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <div class="top-header">
-        <div class="header-item">
-            <img src="images/IMG_3176.PNG" id="chibinez">
-            <h1>MtG Tech Finder</h1>
-        </div>
-        <div class="header-item">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./main">Home</a>
-                    </li>
-                    <li>
-                        <a href="./Search">Search</a>
-                    </li>
-                    <li>
-                        <a href="./about">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Account</a>
-                    </li>
-                    <li>
-                        <a href="./account">Login</a>
-                    </li>
-                    <li>
-                        <a href="./rat" id="rat">Rat?</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <%@ include file="header.html" %>
     <div style="margin-top: 120px"></div>
     <div class="about-container">
         <div class="about-title">

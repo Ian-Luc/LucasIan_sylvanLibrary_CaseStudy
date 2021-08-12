@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MtG Tech Finder</title>
+    <title>Login - Tech Finder</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@300&display=swap');
@@ -60,36 +60,7 @@
     </style>
 </head>
 <body>
-    <div class="top-header">
-        <div class="header-item">
-            <img src="images/IMG_3176.PNG" id="chibinez">
-            <h1>MtG Tech Finder</h1>
-        </div>
-        <div class="header-item">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./main.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="./Search.html">Search</a>
-                    </li>
-                    <li>
-                        <a href="./about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Account</a>
-                    </li>
-                    <li>
-                        <a href="./login.html">Login</a>
-                    </li>
-                    <li>
-                        <a href="./rat.html" id="rat">Rat?</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <%@ include file="header.html" %>
     <div style="margin-top: 120px"></div>
     <div class="center">
         <div style="padding-top: 30%;">

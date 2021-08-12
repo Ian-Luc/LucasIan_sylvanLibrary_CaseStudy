@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "accounts")
 public class UserAccount {
@@ -17,6 +19,7 @@ public class UserAccount {
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
+	@NonNull
 	private String password;
 	@Column(name = "last_login")
 	private Date lastLogin;

@@ -32,10 +32,10 @@ public class HomeController {
 	
 	//I cannot for the life of me get this page to work
 	@RequestMapping(
-		value = "/Search",
+		value = "/search",
 		method = {RequestMethod.GET, RequestMethod.POST})
 	public String showSearchPage() {
-		return "Search";
+		return "search";
 	}
 	
 	@GetMapping("/about")
@@ -58,8 +58,13 @@ public class HomeController {
 		return "login";
 	}
 	
-	@GetMapping("/newaccount")
-	public String showNewAccount() {
-		return "newaccount";
+	@GetMapping("/newAccount")
+	public String showNewAccountPage() {
+		return "newAccount";
+	}
+	
+	@GetMapping("/submit")
+	public String showSubmitPage() {
+		return "submit";
 	}
 }
