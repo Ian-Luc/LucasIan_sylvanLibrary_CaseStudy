@@ -1,13 +1,10 @@
 package com.sylvan.entities;
 
-import java.sql.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.springframework.lang.NonNull;
 
@@ -16,23 +13,25 @@ import org.springframework.lang.NonNull;
 public class UserAccount {
 	
 	@Id
+	@Size(min=2, max=50, message="Username must be between 2 and 50 characters long")
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
 	@NonNull
+	@Size(min=2, max=50, message="Password must be between 2 and 50 characters long")
 	private String password;
-	@Column(name = "last_login")
-	private Date lastLogin;
+	@Column(name = "profilepic")
+	private String picUrl;
 	
 //	@OneToMany
-//	private List<String> savedDecks;
+//	private List<DeckCatalog> savedDecks;
 	
 	public UserAccount() { }
 	
 	public UserAccount(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.lastLogin = new Date(System.currentTimeMillis());
+		this.picUrl = "resources/images/loginicon.png";
 	}
 
 	public String getUsername() {
@@ -51,11 +50,28 @@ public class UserAccount {
 		this.password = password;
 	}
 
+//	public List<Integer> getSavedDecks() {
+//		return savedDecks;
+//	}
+//
+//	public void setSavedDecks(List<Integer> savedDecks) {
+//		this.savedDecks = savedDecks;
+//	}
+
+	public String getPicUrl() {
+		return picUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((picUrl == null) ? 0 : picUrl.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -73,6 +89,11 @@ public class UserAccount {
 			if (other.password != null)
 				return false;
 		} else if (!password.equals(other.password))
+			return false;
+		if (picUrl == null) {
+			if (other.picUrl != null)
+				return false;
+		} else if (!picUrl.equals(other.picUrl))
 			return false;
 		if (username == null) {
 			if (other.username != null)

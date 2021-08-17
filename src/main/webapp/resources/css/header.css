@@ -22,7 +22,7 @@ div.top-header{
 
 div.header-item{
     display: flex;
-    padding: 10px;
+    padding: 20px;
     color: white;
     flex: 1;
     font-family: "Roboto";
@@ -59,9 +59,6 @@ li {
     font-family: "Roboto";
 }
 
-#rat{
-	color: cadetblue;
-}
 #rat:hover{
     background-image: url(./../images/postrat.gif);
     background-size: 101%;

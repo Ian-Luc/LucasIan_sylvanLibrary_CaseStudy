@@ -1,7 +1,6 @@
 package com.sylvan.services;
 
 import java.util.List;
-import com.sylvan.entities.CardCatalog;
 import com.sylvan.entities.DeckCatalog;
 
 public interface DeckService {

@@ -1,5 +1,7 @@
 package com.sylvan.services.impl;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sylvan.entities.UserAccount;
@@ -31,5 +33,20 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public UserAccount findByUsername(String username) {
 		return accountRepository.findByUsername(username);
+	}
+
+	@Override
+	public UserAccount save(@Valid UserAccount newUser) {
+		return accountRepository.save(newUser);
+	}
+
+	@Override
+	public UserAccount removeUser(String username) {
+		UserAccount user = accountRepository.findByUsername(username);
+		if (user == null) {
+			return null;
+		}
+		accountRepository.delete(user);
+		return user;
 	}
 }

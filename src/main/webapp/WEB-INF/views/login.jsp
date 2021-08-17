@@ -18,7 +18,7 @@
             margin-top: -150px;
             border-radius: 100%;
             background-color: rgb(47, 47, 241);
-            background-image: url("./../images/loginicon.png");
+            background-image: url("images/loginicon.png");
             background-size: 90%;
             background-repeat: no-repeat;
         }
@@ -54,7 +54,7 @@
             border-radius: 10px;
         }
         body{
-            background-image: url("./../images/lightnoughts.png");
+            background-image: url("images/lightnoughts.png");
             background-size: 100%;
         }
     </style>
