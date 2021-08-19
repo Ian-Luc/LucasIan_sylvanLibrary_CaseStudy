@@ -13,7 +13,6 @@
 <body>
     <%@ include file="header.html" %>
     <div class="main-container">
-        <div id="topspace"></div>
         <div class="archetypeheader">
             <h2>Popular Legacy Archetypes to try out</h2>
         </div>

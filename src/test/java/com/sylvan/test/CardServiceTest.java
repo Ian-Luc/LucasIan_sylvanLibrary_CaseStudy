@@ -8,10 +8,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.sylvan.config.WebAppConfig;
-import com.sylvan.entities.CardCatalog;
-import com.sylvan.repositories.CardRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.ianlucas.sylvanlibrary.config.WebAppConfig;
+import org.ianlucas.sylvanlibrary.entities.CardCatalog;
+import org.ianlucas.sylvanlibrary.repositories.CardRepository;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { WebAppConfig.class })

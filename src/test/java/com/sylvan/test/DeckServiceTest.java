@@ -1,5 +1,8 @@
 package com.sylvan.test;
 
+import org.ianlucas.sylvanlibrary.config.WebAppConfig;
+import org.ianlucas.sylvanlibrary.entities.DeckCatalog;
+import org.ianlucas.sylvanlibrary.services.DeckService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,10 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
-
-import com.sylvan.config.WebAppConfig;
-import com.sylvan.entities.DeckCatalog;
-import com.sylvan.services.DeckService;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { WebAppConfig.class })

@@ -2,6 +2,9 @@ package com.sylvan.test;
 
 import java.util.List;
 
+import org.ianlucas.sylvanlibrary.config.WebAppConfig;
+import org.ianlucas.sylvanlibrary.entities.DeckContent;
+import org.ianlucas.sylvanlibrary.services.ContentService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import com.sylvan.config.WebAppConfig;
-import com.sylvan.entities.DeckContent;
-import com.sylvan.services.ContentService;
 
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;

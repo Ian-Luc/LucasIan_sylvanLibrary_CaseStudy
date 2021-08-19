@@ -8,38 +8,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account - Tech Finder</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" href="css/account.css">
 </head>
 <body>
     <%@ include file="header.html" %>
-    <div style="margin-top: 120px"></div>
-    <div>
-    	<img src="" id="profile_pic">
-    	<h2>Username</h2>
+    <div class="userpic">
     </div>
-    <div>
-    	<form:form action="changeUsername" method="post" modelAttribute="UserAccount">
+    <div class="item">
+    	<h2>Username to be implemented</h2>
+    </div>
+    <div class="item">
+    	<form:form action="./changeUsername" method="post" modelAttribute="UserAccount">
     		<label>Change Username:</label>
-    		<form:input type="text" required="true" />
+    		<form:input type="text" path="username" required="true" />
     		<form:errors cssClass="error" />
+    		<form:button>Submit</form:button>
     	</form:form>
     </div>
-    <div>
+    <div class="item">
     	<form:form action="changePassword" method="post" modelAttribute="UserAccount">
     		<label>Change Password:</label>
-    		<form:input type="text" required="true" />
+    		<form:input type="text" path="password" required="true" />
     		<form:errors cssClass="error" />
+    		<form:button>Submit</form:button>
     	</form:form>
     </div>
-    <div>
+    <div class="item">
     	<form:form action="changePicture" method="post" modelAttribute="UserAccount">
     		<label>Change Profile Picture:</label>
-    		<form:input type="text" required="true" placeholder="Enter a Url" />
+    		<form:input type="text" required="true" placeholder="Enter a Url" path="picUrl" />
     		<form:errors cssClass="error" />
+    		<form:button>Submit</form:button>
     	</form:form>
-    </div>
-    <div id="delete_this_account_dan_backslide">
-    	<form:button action="removeAccount" value="DELETE ACCOUNT" />
     </div>
 </body>
 </html>

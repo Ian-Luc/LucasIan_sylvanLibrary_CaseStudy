@@ -12,7 +12,6 @@
 </head>
 <body>
     <%@ include file="header.html" %>
-    <div style="margin-top: 120px"></div>
     <div class="about-container">
         <div class="about-title">
             <div class="whatisthis">

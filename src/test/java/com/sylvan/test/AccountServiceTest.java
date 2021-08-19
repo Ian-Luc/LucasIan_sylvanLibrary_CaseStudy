@@ -9,9 +9,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.sylvan.config.WebAppConfig;
-import com.sylvan.entities.UserAccount;
-import com.sylvan.repositories.AccountRepository;
+import org.ianlucas.sylvanlibrary.config.WebAppConfig;
+import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.repositories.AccountRepository;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { WebAppConfig.class })

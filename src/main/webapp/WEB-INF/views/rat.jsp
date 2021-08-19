@@ -12,7 +12,6 @@
 </head>
 <body>
     <%@ include file="header.html" %>
-    <div style="margin-top: 130px"></div>
     <script type="text/javascript" src="js/rat.js"></script>
     <div class="buttonbox">
         <button onclick="playVideo()">Play</button>
