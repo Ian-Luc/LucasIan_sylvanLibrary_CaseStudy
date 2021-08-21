@@ -33,11 +33,6 @@ public class HomeController {
 		return "main";
 	}
 	
-	@GetMapping("/search")
-	public String showSearchPage() {
-		return "search";
-	}
-	
 	@GetMapping("/about")
 	public String showAboutPage() {
 		return "about";
@@ -46,12 +41,6 @@ public class HomeController {
 	@GetMapping("/rat")
 	public String showRatPage() {
 		return "rat";
-	}
-	
-	@GetMapping("/account")
-	public String showAccountPage(Model model) {
-		model.addAttribute("UserAccount", new UserAccount());
-		return "account";
 	}
 	
 	@GetMapping("/login")
