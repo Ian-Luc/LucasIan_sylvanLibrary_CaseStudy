@@ -13,29 +13,31 @@
 </head>
 <body>
 	<%@ include file="header.html" %>
-	<div class="item">
+	<div>
     <form:form action="./registerDeck" method="post" modelAttribute="deckCatalog">
-	    <div>
-	    	<label>Deck Name:</label>
+	    <div class="item">
+	    	<label>Deck Name: </label>
 	    	<form:input type="text" path="deckName" name="deckName" required="true" />
 	    	<form:errors path="deckName" cssClass="error" />
 	    </div>
-	    <div>
-	    	<label>Player Name:</label>
+	    <div class="item">
+	    	<label>Player Name: </label>
 	    	<form:input type="text" path="playerName" name="playerName" required="true" />
 	    	<form:errors path="playerName" cssClass="error" />
 	    </div>
-	    <div>
-	    	<label>Format:</label>
+	    <div class="item">
+	    	<label>Format: </label>
 	    	<form:input type="select" path="format" required="true" />
 	    	<form:errors path="format" cssClass="error" />
 	    </div>
-	    <div>
-	    	<label>Archetype:</label>
+	    <div class="item">
+	    	<label>Archetype: </label>
 	    	<form:input type="text" path="archetype" name="archetype" required="true" />
 	    	<form:errors path="archetype" cssClass="error" />
 	    </div>
-	    <form:button>Add Deck!!</form:button>
+	    <div class="item">
+	    	<form:button>Add Deck!!</form:button>
+	    </div>
     </form:form>
     </div>
     <div class=item>

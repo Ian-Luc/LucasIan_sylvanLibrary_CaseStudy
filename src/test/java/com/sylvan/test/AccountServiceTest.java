@@ -10,7 +10,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.ianlucas.sylvanlibrary.config.WebAppConfig;
-import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.entities.Account;
 import org.ianlucas.sylvanlibrary.repositories.AccountRepository;
 
 @ExtendWith(SpringExtension.class)
@@ -28,11 +28,11 @@ public class AccountServiceTest {
 	
 	@Test
 	void testFindByUsername() {
-		UserAccount newUser = new UserAccount();
+		Account newUser = new Account();
 		newUser.setUsername("nezmog");
 		newUser.setPassword("TwitchIsGood");
-		UserAccount savedUser = accountRepository.save(newUser);
-		UserAccount foundUser = accountRepository.findByUsername("nezmog");
+		Account savedUser = accountRepository.save(newUser);
+		Account foundUser = accountRepository.findByUsername("nezmog");
 		assertTrue(savedUser.equals(foundUser));
 	}
 	

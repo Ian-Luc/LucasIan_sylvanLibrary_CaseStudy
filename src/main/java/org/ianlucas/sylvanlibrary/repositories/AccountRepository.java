@@ -1,11 +1,11 @@
 package org.ianlucas.sylvanlibrary.repositories;
 
-import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.entities.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AccountRepository extends JpaRepository<UserAccount, String> {
+public interface AccountRepository extends JpaRepository<Account, String> {
 	
-	UserAccount findByUsername(String username);
+	Account findByUsername(String username);
 }

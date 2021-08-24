@@ -1,8 +1,8 @@
 package org.ianlucas.sylvanlibrary.controllers;
 
-import org.ianlucas.sylvanlibrary.entities.DeckCatalog;
-import org.ianlucas.sylvanlibrary.entities.DeckContent;
-import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.entities.Deck;
+import org.ianlucas.sylvanlibrary.entities.Content;
+import org.ianlucas.sylvanlibrary.entities.Account;
 import org.ianlucas.sylvanlibrary.services.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

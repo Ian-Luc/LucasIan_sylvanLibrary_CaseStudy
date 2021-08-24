@@ -5,20 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "deckcontent")
-public class DeckContent {
+@Table(name = "content")
+public class Content {
 	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@ManyToOne
-	@Column(name = "deck")
-	private Integer deck;
+	@ManyToOne
+	private Deck deck;
 	
 //	@ManyToOne
 	@Column(name = "card")
@@ -27,13 +27,16 @@ public class DeckContent {
 	@Column(name = "quantity")
 	private Integer quantity;
 	
-	public DeckContent() {	}
-	
-	public DeckContent(Integer deck, String card, int quantity) {
+	public Content() {	}
+
+	public Content(Integer id, Deck deck, String card, Integer quantity) {
+		super();
+		this.id = id;
 		this.deck = deck;
 		this.card = card;
 		this.quantity = quantity;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -43,11 +46,11 @@ public class DeckContent {
 		this.id = id;
 	}
 
-	public Integer getDeck() {
+	public Deck getDeck() {
 		return deck;
 	}
 
-	public void setDeck(Integer deck) {
+	public void setDeck(Deck deck) {
 		this.deck = deck;
 	}
 
@@ -86,7 +89,7 @@ public class DeckContent {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DeckContent other = (DeckContent) obj;
+		Content other = (Content) obj;
 		if (card == null) {
 			if (other.card != null)
 				return false;

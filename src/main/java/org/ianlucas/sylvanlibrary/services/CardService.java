@@ -1,9 +1,9 @@
 package org.ianlucas.sylvanlibrary.services;
 
-import org.ianlucas.sylvanlibrary.entities.CardCatalog;
+import org.ianlucas.sylvanlibrary.entities.Cards;
 
 public interface CardService {
 	
-	CardCatalog findByName(String name);
-	CardCatalog save(CardCatalog card);
+	Cards findByName(String name);
+	Cards save(Cards card);
 }

@@ -11,7 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.ianlucas.sylvanlibrary.config.WebAppConfig;
-import org.ianlucas.sylvanlibrary.entities.CardCatalog;
+import org.ianlucas.sylvanlibrary.entities.Cards;
 import org.ianlucas.sylvanlibrary.repositories.CardRepository;
 
 @ExtendWith(SpringExtension.class)
@@ -29,14 +29,14 @@ public class CardServiceTest {
 	
 	@Test
 	void testFindByName() {
-		CardCatalog card = new CardCatalog();
+		Cards card = new Cards();
 		card.setColor("Black");
 		card.setCost("B");
 		card.setName("Thoughtseize");
 		card.setType("Sorcery");
 		card.setImgSource(null);
-		CardCatalog savedCard = cardRepository.save(card);
-		CardCatalog returnCard = cardRepository.findByName("Thoughtseize");
+		Cards savedCard = cardRepository.save(card);
+		Cards returnCard = cardRepository.findByName("Thoughtseize");
 		assertEquals(savedCard, returnCard);
 	}
 }

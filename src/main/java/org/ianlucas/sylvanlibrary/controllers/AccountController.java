@@ -2,7 +2,7 @@ package org.ianlucas.sylvanlibrary.controllers;
 
 import javax.validation.Valid;
 
-import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.entities.Account;
 import org.ianlucas.sylvanlibrary.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,28 +24,28 @@ public class AccountController {
 	
 	@GetMapping("/account")
 	public String showAccountPage(Model model) {
-		model.addAttribute("UserAccount", new UserAccount());
+		model.addAttribute("UserAccount", new Account());
 		return "account";
 	}
 	
 	@PostMapping("/registerNewUser")
-	public String showRegisterNewUser(@Valid @ModelAttribute("newUser") UserAccount newUser, 
+	public String showRegisterNewUser(@Valid @ModelAttribute("newUser") Account newUser, 
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "account";
 		}
-		UserAccount user = accountService.save(newUser);
+		Account user = accountService.save(newUser);
 		System.out.println(user.getUsername());
 		return "redirect:/account";
 	}
 	
 	@PostMapping("/changeUsername")
-	public String attemptChangeUsername(@Valid @ModelAttribute("currentUser") UserAccount currentUser, String newName,
+	public String attemptChangeUsername(@Valid @ModelAttribute("currentUser") Account currentUser, String newName,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "account";
 		}
-		UserAccount user = accountService.findByUsername(currentUser.getUsername());
+		Account user = accountService.findByUsername(currentUser.getUsername());
 		accountService.removeUser(currentUser);
 		user.setUsername(newName);
 		accountService.save(user);
@@ -53,12 +53,12 @@ public class AccountController {
 	}
 	
 	@PostMapping("/changePassword")
-	public String attemptChangePassword(@Valid @ModelAttribute("currentUser") UserAccount currentUser, String newPass,
+	public String attemptChangePassword(@Valid @ModelAttribute("currentUser") Account currentUser, String newPass,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "redirect:/account";
 		}
-		UserAccount user = accountService.findByUsername(currentUser.getUsername());
+		Account user = accountService.findByUsername(currentUser.getUsername());
 		accountService.removeUser(currentUser);
 		user.setUsername(newPass);
 		accountService.save(user);
@@ -66,12 +66,12 @@ public class AccountController {
 	}
 	
 	@PostMapping("/changePicture")
-	public String attemptChangePicture(@Valid @ModelAttribute("currentUser") UserAccount currentUser, String newPic,
+	public String attemptChangePicture(@Valid @ModelAttribute("currentUser") Account currentUser, String newPic,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "redirect:/account";
 		}
-		UserAccount user = accountService.findByUsername(currentUser.getUsername());
+		Account user = accountService.findByUsername(currentUser.getUsername());
 		accountService.removeUser(currentUser);
 		user.setUsername(newPic);
 		accountService.save(user);
@@ -79,7 +79,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/removeAccount")
-	public String deleteAccount(@Valid @ModelAttribute("currentUser") UserAccount currentUser,
+	public String deleteAccount(@Valid @ModelAttribute("currentUser") Account currentUser,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "account";

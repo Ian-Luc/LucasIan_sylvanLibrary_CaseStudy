@@ -2,7 +2,7 @@ package org.ianlucas.sylvanlibrary.controllers;
 
 import javax.validation.Valid;
 
-import org.ianlucas.sylvanlibrary.entities.DeckCatalog;
+import org.ianlucas.sylvanlibrary.entities.Deck;
 import org.ianlucas.sylvanlibrary.services.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,12 +29,12 @@ public class DeckController {
 	
 	@GetMapping("/submitDeck")
 	public String showSubmitDeckPage(Model model) {
-		model.addAttribute("deckCatalog", new DeckCatalog());
+		model.addAttribute("deckCatalog", new Deck());
 		return "submit_deck";
 	}
 	
 	@PostMapping("/registerDeck")
-	public String addDeckToDb(@Valid @ModelAttribute("deckCatalog") DeckCatalog deckCatalog,
+	public String addDeckToDb(@Valid @ModelAttribute("deckCatalog") Deck deckCatalog,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "submit_deck";

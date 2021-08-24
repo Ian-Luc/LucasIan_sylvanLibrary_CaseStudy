@@ -30,5 +30,28 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar" sourcepath="C:/Users/Lucas2/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="h2-1.4.200.jar"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="com.h2database"/>
+			<attribute name="maven.artifactId" value="h2"/>
+			<attribute name="maven.version" value="1.4.200"/>
+			<attribute name="maven.scope" value="runtime"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar" sourcepath="C:/Users/Lucas2/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="javax.persistence-api-2.2.jar"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="javax.persistence"/>
+			<attribute name="maven.artifactId" value="javax.persistence-api"/>
+			<attribute name="maven.version" value="2.2"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

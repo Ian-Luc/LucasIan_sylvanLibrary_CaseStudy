@@ -2,7 +2,7 @@ package org.ianlucas.sylvanlibrary.controllers;
 
 import javax.validation.Valid;
 
-import org.ianlucas.sylvanlibrary.entities.DeckContent;
+import org.ianlucas.sylvanlibrary.entities.Content;
 import org.ianlucas.sylvanlibrary.exceptions.NoDeckFoundException;
 import org.ianlucas.sylvanlibrary.services.ContentService;
 import org.ianlucas.sylvanlibrary.services.DeckService;
@@ -29,21 +29,23 @@ public class ContentController {
 	
 	@GetMapping("/submitContents")
 	public String showSubmitContentsPage(Model model) {
-		model.addAttribute("deckContent", new DeckContent());
+		model.addAttribute("deckContent", new Content());
 		return "submit_contents";
 	}
 	
 	@PostMapping("/registerCard")
-	public String addDeckToArchive(@Valid @ModelAttribute("deckContent") 
-			DeckContent deckContent,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "submit_contents";
-		}
+	public String addDeckToArchive(int deck, 
+			String card, 
+			int quantity) {
+		Content deckContent = new Content();
 //		if (deckService.findByDeckId(deckContent.getId()) == null) {
 //			throw new NoDeckFoundException("No deck found to add card to!");
 //		}
+		deckContent.setDeck(deckService.findByDeckId(deck));
+		deckContent.setCard(card);
+		deckContent.setQuantity(quantity);
 		contentService.save(deckContent);
+		
 		return "redirect:/submit";
 	}
 }

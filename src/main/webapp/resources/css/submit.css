@@ -7,15 +7,43 @@ body {
 }
 
 .item{
-    margin-left:45%;
-    margin-right:55%;
-    display: flex;
-    width: 10%;
+    margin-left:auto;
+    margin-right:auto;
     background-color: rgba(190, 190, 190, 65%);
-    border-radius: 15px;
+    border-radius: 5px;
     font-size: 20px;
     font-family: "Lexend";
     padding: 15px;
     margin-top: 15px;
     align-content: center;
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row nowrap;
+	-ms-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: auto;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	position: relative;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 0 10px;
+	    padding-top: 0px;
+	height: 42px;
+	font-size: 21px;
+	line-height: 18px;
+	font-weight: bold !important;
 }

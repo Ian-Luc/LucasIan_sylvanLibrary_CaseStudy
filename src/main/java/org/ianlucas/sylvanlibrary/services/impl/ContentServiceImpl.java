@@ -1,9 +1,13 @@
 package org.ianlucas.sylvanlibrary.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.ianlucas.sylvanlibrary.dto.CardDTO;
-import org.ianlucas.sylvanlibrary.entities.DeckContent;
+import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
+import org.ianlucas.sylvanlibrary.dto.SearchDTO;
+import org.ianlucas.sylvanlibrary.dto.TotalCardDTO;
+import org.ianlucas.sylvanlibrary.entities.Deck;
+import org.ianlucas.sylvanlibrary.entities.Content;
 import org.ianlucas.sylvanlibrary.repositories.ContentRepository;
 import org.ianlucas.sylvanlibrary.repositories.DeckRepository;
 import org.ianlucas.sylvanlibrary.services.ContentService;
@@ -14,37 +18,36 @@ import org.springframework.stereotype.Service;
 public class ContentServiceImpl implements ContentService {
 	
 	private ContentRepository contentRepository;
-	private DeckRepository deckRepository;
 	
 	@Autowired
-	public ContentServiceImpl(ContentRepository contentRepository, DeckRepository deckRepository) {
+	public ContentServiceImpl(ContentRepository contentRepository) {
 		this.contentRepository = contentRepository;
-		this.deckRepository = deckRepository;
+		
 	}
 
 	@Override
-	public List<DeckContent> findByDeck(Integer deck) {
-		return contentRepository.findByDeck(deck);
-	}
-
-	@Override
-	public List<DeckContent> findByCard(String name) {
-		return contentRepository.findByCardContaining(name);
-	}
-
-	@Override
-	public DeckContent findByCardAndDeck(String name, Integer deck) {
-		return contentRepository.findByCardAndDeck(name, deck);
-	}
-
-	@Override
-	public DeckContent save(DeckContent deck) {
+	public Content save(Content deck) {
 		return contentRepository.save(deck);
 	}
 
-	
-	private List<CardDTO> assemblyTasks(List<DeckContent> findAll) {
+	@Override
+	public List<TotalCardDTO> findTotalQuantityByDeck(String archetype, String format) {
 		
-		return null;
+		return contentRepository.findTotalQuantityByDeck(archetype, format);
+	}
+
+//	@Override
+//	public List<ArchetypeDTO> findArchetypeByCardName(String card, String format) {
+//		return contentRepository.findArchetypeByCardName(card, format);
+//	}
+
+	@Override
+	public List<TotalCardDTO> findAllCards(String card, String format) {
+		return contentRepository.findAllCards(card, format);
+	}
+
+	@Override
+	public List<ArchetypeDTO> findAllArchetypes(String archetype, String format) {
+		return contentRepository.findAllArchetype(archetype, format);
 	}
 }

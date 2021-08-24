@@ -9,8 +9,8 @@ import javax.validation.constraints.Size;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "accounts")
-public class UserAccount {
+@Table(name = "account")
+public class Account {
 	
 	@Id
 	@Size(min=2, max=50, message="Username must be between 2 and 50 characters long")
@@ -23,9 +23,9 @@ public class UserAccount {
 	@Column(name = "profilepic")
 	private String picUrl;
 	
-	public UserAccount() { }
+	public Account() { }
 	
-	public UserAccount(String username, String password) {
+	public Account(String username, String password) {
 		this.username = username;
 		this.password = password;
 		this.picUrl = "resources/images/loginicon.png";
@@ -73,7 +73,7 @@ public class UserAccount {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserAccount other = (UserAccount) obj;
+		Account other = (Account) obj;
 		if (password == null) {
 			if (other.password != null)
 				return false;

@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cardcatalog")
-public class CardCatalog {
+@Table(name = "cards")
+public class Cards {
 	
 	@Id
 	@Column(name = "card_name")
@@ -21,9 +21,9 @@ public class CardCatalog {
 	@Column(name = "img_source")
 	private String imgSource;
 	
-	public CardCatalog() { }
+	public Cards() { }
 	
-	public CardCatalog(String name, String type, String color, String cost, String imgSource) {
+	public Cards(String name, String type, String color, String cost, String imgSource) {
 		this.name = name;
 		this.type = type;
 		this.color = color;
@@ -91,7 +91,7 @@ public class CardCatalog {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CardCatalog other = (CardCatalog) obj;
+		Cards other = (Cards) obj;
 		if (color == null) {
 			if (other.color != null)
 				return false;

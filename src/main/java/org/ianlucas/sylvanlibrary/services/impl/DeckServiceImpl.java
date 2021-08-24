@@ -1,9 +1,10 @@
 package org.ianlucas.sylvanlibrary.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.ianlucas.sylvanlibrary.entities.CardCatalog;
-import org.ianlucas.sylvanlibrary.entities.DeckCatalog;
+import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
+import org.ianlucas.sylvanlibrary.entities.Deck;
 import org.ianlucas.sylvanlibrary.repositories.DeckRepository;
 import org.ianlucas.sylvanlibrary.services.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +19,33 @@ public class DeckServiceImpl implements DeckService{
 	public DeckServiceImpl(DeckRepository deckRepository) {
 		this.deckRepository = deckRepository;
 	}
+	
+	private ArchetypeDTO buildDto(Deck deck) {
+		ArchetypeDTO archetypeDto = new ArchetypeDTO();
+		archetypeDto.setArchetype(deck.getArchetype());
+		archetypeDto.setName(deck.getDeckName());
+		archetypeDto.setPlayerName(deck.getPlayerName());
+		archetypeDto.setFormat(deck.getFormat());
+		return archetypeDto;
+	}
 
 	@Override
-	public List<DeckCatalog> findByPlayerName(String player) {
+	public List<Deck> findByPlayerName(String player) {
 		return deckRepository.findByPlayerName(player);
 	}
 
 	@Override
-	public List<DeckCatalog> findByArchetype(String archetype) {
+	public List<Deck> findByArchetype(String archetype) {
 		return deckRepository.findByArchetype(archetype);
 	}
 
 	@Override
-	public DeckCatalog findByDeckId(Integer id) {
+	public Deck findByDeckId(Integer id) {
 		return deckRepository.findByDeckId(id);
 	}
 
 	@Override
-	public DeckCatalog findByDeckNameAndPlayerName(String deckName, String playerName) {
+	public Deck findByDeckNameAndPlayerName(String deckName, String playerName) {
 		return deckRepository.findByDeckNameAndPlayerName(deckName, playerName);
 	}
 
@@ -50,7 +60,17 @@ public class DeckServiceImpl implements DeckService{
 //	}
 	
 	@Override
-	public DeckCatalog save(DeckCatalog deck) {
+	public Deck save(Deck deck) {
 		return deckRepository.save(deck);
+	}
+
+	@Override
+	public List<ArchetypeDTO> findTop10ArchetypeDTO(String card, String format) {
+		List<ArchetypeDTO> dtoList = new ArrayList<>();
+		for (Deck deck : deckRepository.findByFormatAndContentCardContaining(format, card)) {
+			dtoList.add(buildDto(deck));
+		}
+		System.out.println(dtoList.size());
+		return dtoList;
 	}
 }

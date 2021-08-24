@@ -1,6 +1,6 @@
 package org.ianlucas.sylvanlibrary.services.impl;
 
-import org.ianlucas.sylvanlibrary.entities.CardCatalog;
+import org.ianlucas.sylvanlibrary.entities.Cards;
 import org.ianlucas.sylvanlibrary.repositories.CardRepository;
 import org.ianlucas.sylvanlibrary.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +17,12 @@ public class CardServicesImpl implements CardService{
 	}
 
 	@Override
-	public CardCatalog findByName(String name) {
+	public Cards findByName(String name) {
 		return cardRepository.findByName(name);
 	}
 
 	@Override
-	public CardCatalog save(CardCatalog card) {
+	public Cards save(Cards card) {
 		return cardRepository.save(card);
 	}
 }

@@ -5,11 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "deckarchetype")
-public class DeckArchetype {
+@Table(name = "archetype")
+public class Archetype {
 
 	@Id
 	@Column(name = "id")
@@ -22,9 +23,9 @@ public class DeckArchetype {
 	@Column(name = "color")
 	private String color;
 	
-	public DeckArchetype() { }
+	public Archetype() { }
 	
-	public DeckArchetype(String archetypeName, String deckSpeed, String color) {
+	public Archetype(String archetypeName, String deckSpeed, String color) {
 		this.name = archetypeName;
 		this.speed = deckSpeed;
 		this.color = color;
@@ -81,7 +82,7 @@ public class DeckArchetype {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DeckArchetype other = (DeckArchetype) obj;
+		Archetype other = (Archetype) obj;
 		if (archetypeId != other.archetypeId)
 			return false;
 		if (color == null) {

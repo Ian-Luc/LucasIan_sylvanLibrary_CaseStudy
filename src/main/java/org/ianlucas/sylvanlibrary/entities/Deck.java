@@ -1,15 +1,31 @@
 package org.ianlucas.sylvanlibrary.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
 
+import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
+
 @Entity
-@Table(name = "deckcatalog")
-public class DeckCatalog {
+@Table(name = "deck")
+@SqlResultSetMapping(name = "findTop10ByFormatAndContentCard",
+		classes = {
+			@ConstructorResult(targetClass = ArchetypeDTO.class,
+					columns = {@ColumnResult(name = "name"), 
+							@ColumnResult(name = "playerName"), 
+							@ColumnResult(name = "format"),
+							@ColumnResult(name = "archetype")
+			})})
+public class Deck {
 	
 	@Id
 	@Column(name = "deck_id")
@@ -24,15 +40,19 @@ public class DeckCatalog {
 	@Column(name = "archetype")
 	private String archetype;
 	
+	@OneToMany
+	private List<Content> content;
+	
 //	@ManyToOne
 //	private DeckArchetype archetypeDetail;
 	
-	public DeckCatalog() { }
+	public Deck() { }
 	
-	public DeckCatalog(String deckName, String archetype, String playerName/*, DeckArchetype archetypeDetail*/) {
+	public Deck(String deckName, String archetype, String playerName, List<Content> content/*, DeckArchetype archetypeDetail*/) {
 		this.deckName = deckName;
 		this.archetype = archetype;
 		this.playerName = playerName;
+		this.content = content;
 //		this.archetypeDetail = archetypeDetail;
 	}
 
@@ -83,6 +103,14 @@ public class DeckCatalog {
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
+	
+	public List<Content> getContent() {
+		return content;
+	}
+
+	public void setContent(List<Content> content) {
+		this.content = content;
+	}
 
 	@Override
 	public int hashCode() {
@@ -105,7 +133,7 @@ public class DeckCatalog {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DeckCatalog other = (DeckCatalog) obj;
+		Deck other = (Deck) obj;
 		if (archetype == null) {
 			if (other.archetype != null)
 				return false;

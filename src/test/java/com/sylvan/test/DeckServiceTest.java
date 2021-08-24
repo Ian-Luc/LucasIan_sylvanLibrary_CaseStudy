@@ -1,7 +1,7 @@
 package com.sylvan.test;
 
 import org.ianlucas.sylvanlibrary.config.WebAppConfig;
-import org.ianlucas.sylvanlibrary.entities.DeckCatalog;
+import org.ianlucas.sylvanlibrary.entities.Deck;
 import org.ianlucas.sylvanlibrary.services.DeckService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -30,37 +30,37 @@ public class DeckServiceTest {
 
 	@Test
 	void testSaveAndFindById() {
-		DeckCatalog newDeck = new DeckCatalog();
+		Deck newDeck = new Deck();
 		newDeck.setDeckName("Naked Nought");
 		newDeck.setArchetype("BUG Midrange");
 		newDeck.setPlayerName("Nezche");
 		newDeck.setFormat("Legacy");
-		DeckCatalog setDeck = deckService.save(newDeck);
-		DeckCatalog foundDeck = deckService.findByDeckId(setDeck.getDeckId());
+		Deck setDeck = deckService.save(newDeck);
+		Deck foundDeck = deckService.findByDeckId(setDeck.getDeckId());
 		assertEquals(foundDeck, setDeck);
 	}
 	
 	@Test
 	void testFindByPlayerName() {
-		DeckCatalog newDeck = new DeckCatalog();
+		Deck newDeck = new Deck();
 		newDeck.setDeckName("Sultai Doomsday");
 		newDeck.setArchetype("Doomsday");
 		newDeck.setPlayerName("Nezche");
 		newDeck.setFormat("Legacy");
-		DeckCatalog setDeck = deckService.save(newDeck);
-		List<DeckCatalog> foundDecks = deckService.findByPlayerName("Nezche");
+		Deck setDeck = deckService.save(newDeck);
+		List<Deck> foundDecks = deckService.findByPlayerName("Nezche");
 		assertTrue(foundDecks.size()>0);
 	}
 	
 	@Test
 	void testFindByArchetype() {
-		DeckCatalog newDeck = new DeckCatalog();
+		Deck newDeck = new Deck();
 		newDeck.setDeckName("Monowhite Bomberman");
 		newDeck.setArchetype("Bomberman");
 		newDeck.setPlayerName("Nezche");
 		newDeck.setFormat("Legacy");
-		DeckCatalog setDeck = deckService.save(newDeck);
-		List<DeckCatalog> foundDecks = deckService.findByArchetype("Bomberman");
+		Deck setDeck = deckService.save(newDeck);
+		List<Deck> foundDecks = deckService.findByArchetype("Bomberman");
 		assertTrue(foundDecks.size()>0);
 	}
 }

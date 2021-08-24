@@ -2,7 +2,7 @@ package org.ianlucas.sylvanlibrary.services.impl;
 
 import javax.validation.Valid;
 
-import org.ianlucas.sylvanlibrary.entities.UserAccount;
+import org.ianlucas.sylvanlibrary.entities.Account;
 import org.ianlucas.sylvanlibrary.repositories.AccountRepository;
 import org.ianlucas.sylvanlibrary.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +32,17 @@ public class AccountServiceImpl implements AccountService{
 //	}
 	
 	@Override
-	public UserAccount findByUsername(String username) {
+	public Account findByUsername(String username) {
 		return accountRepository.findByUsername(username);
 	}
 
 	@Override
-	public UserAccount save(@Valid UserAccount newUser) {
+	public Account save(@Valid Account newUser) {
 		return accountRepository.save(newUser);
 	}
 
 	@Override
-	public void removeUser(UserAccount user) {
+	public void removeUser(Account user) {
 //		UserAccount user = accountRepository.findByUsername(username);
 //		if (user == null) {
 //			return null;
