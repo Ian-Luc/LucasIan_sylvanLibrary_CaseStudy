@@ -20,7 +20,8 @@
                 <p>The point of this tool, the Tech Finder, is to find those lists with lesser used tech and bring that tech straight to you! 
                     Just go to the Search page and enter in the format you are looking in then the deck you want get tech in. 
                     You can even search up a card name and find how often archetypes use it!
-                </p>
+                    
+                    Wanna add to the decks? Make an account and use the submit function!</p>
             </div>
             <div class="headers">
                 <h1>Archetypes Catalog</h1>

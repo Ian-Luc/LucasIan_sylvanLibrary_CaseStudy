@@ -12,23 +12,33 @@
 </head>
 <body>
     <%@ include file="header.html" %>
-    <span class="account-container">
-        <div class="pageopener">
+    <div class="account-container">
+        <div class="center">
             <h1>Create New Account </h1>
         </div>
         <nav class="pagebody">
-            <form:form action="./login" name="newaccount" id="newaccount" modelAttribute="UserAccount">
-                <div>
+        <script type="text/javascript" src="js/newAccount.js"></script>
+            <form:form onsubmit="return checkPassword()" action="./createAccount" name="newaccount" id="newaccount" modelAttribute="Account" method="post">
+                <div class="center">
+                	<label>Username: </label>
                     <form:input type="text" name="username" path="username" id="name" placeholder="Username" required="true" />
+                	<small id="error"></small>
                 </div>
-                <div>
-                    <form:input type="text" name="password" path="password" id="pass" placeholder="Password" required="true" />
+                <div class="center">
+                	<label>Password: </label>
+                    <form:input type="password" name="password" path="password" id="pass" placeholder="Password" required="true" />
+                    <small id="passError"></small>
                 </div>
-                <div>
-                    <form:button type="submit" name="enter" id="pressme" value="Create Account" />
+                <div class="center">
+                	<label>Confirm Password: </label>
+                    <input type="password" name="password2" id="electricBoogaloo" placeholder="Confirm Password" required />
+                    <small id="passErrorBoogaloo"></small>
+                </div>
+                <div class="center">
+                    <form:button type="submit" name="enter" id="pressme" value="Create Account">Create Account!!</form:button>
                 </div>
             </form:form>
         </nav>
-    </span>
+    </div>
 </body>
 </html>

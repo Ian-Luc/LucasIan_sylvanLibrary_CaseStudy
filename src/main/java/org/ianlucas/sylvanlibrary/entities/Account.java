@@ -13,17 +13,17 @@ import org.springframework.lang.NonNull;
 public class Account {
 	
 	@Id
-	@Size(min=2, max=50, message="Username must be between 2 and 50 characters long")
+	@Size(min=5, max=50, message="Username must be between 5 and 50 characters long")
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
 	@NonNull
-	@Size(min=2, max=50, message="Password must be between 2 and 50 characters long")
+	@Size(min=5, max=50, message="Password must be between 5 and 50 characters long")
 	private String password;
 	@Column(name = "profilepic")
 	private String picUrl;
 	
-	public Account() { }
+	public Account() {}
 	
 	public Account(String username, String password) {
 		this.username = username;
@@ -54,7 +54,6 @@ public class Account {
 	public void setPicUrl(String picUrl) {
 		this.picUrl = picUrl;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

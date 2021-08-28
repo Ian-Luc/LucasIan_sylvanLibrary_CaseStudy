@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Tech Finder</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <%@ include file="header.html" %>
@@ -20,24 +20,23 @@
                 <div class="topitem">
                     User Login
                 </div>
-                <script src="js/accountValidate.js"></script>
-                <form onsubmit="return(checkLogin())" name="accountvalidate" id="accountvalidate" class="accountvalidate">
+                <form action="./loginToUser" name="accountvalidate" id="accountvalidate" class="accountvalidate" method="post">
                     <div>
-                        <input type="text" id="username" placeholder="Username" style="background-color: rgb(190, 190, 190); height: 25px">
+                        <input type="text" id="username" name="username" placeholder="Username" style="background-color: rgb(190, 190, 190); height: 25px">
                     </div>
                     <div>
-                        <input type="text" id="password" placeholder="Password" style="background-color: rgb(190, 190, 190); height: 25px">
+                        <input type="password" id="password" name="password" placeholder="Password" style="background-color: rgb(190, 190, 190); height: 25px">
                     </div>
                     <div>
                         <input type="submit" value="LOGIN" style="height: 30px; width: 150px; background-color: rgb(160, 50, 50);">
                     </div>
+                </form>
                     <div class="passwordlink">
-                        <a href="./login.jsp">Forgot Password?</a>
+                        <a href="./login">Forgot Password?</a>
                     </div>
                     <div class="newaccount">
-                        <a href="./new_account.jsp">New? Create Account</a>
+                        <a href="./newAccount">New? Create an Account!</a>
                     </div>
-                </form>
             </nav>
         </div>
     </div>

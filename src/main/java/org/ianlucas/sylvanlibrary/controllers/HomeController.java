@@ -1,27 +1,15 @@
 package org.ianlucas.sylvanlibrary.controllers;
 
-import org.ianlucas.sylvanlibrary.entities.Deck;
-import org.ianlucas.sylvanlibrary.entities.Content;
-import org.ianlucas.sylvanlibrary.entities.Account;
-import org.ianlucas.sylvanlibrary.services.DeckService;
-import org.springframework.beans.factory.annotation.Autowired;
+/*
+ * This is for all the basic pages that don't have advanced functionality 
+ * Other controllers handle database connections and account management
+ */
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-//@RequestParam("deck_id") UUID deckId, 
-//			Model model
+
 @Controller
 public class HomeController {
-	
-	private DeckService deckService;
-	
-	@Autowired
-	public HomeController(DeckService deckService) {
-		this.deckService = deckService;
-	}
 	
 	@GetMapping("/")
 	public String showHomePage() {
@@ -41,15 +29,5 @@ public class HomeController {
 	@GetMapping("/rat")
 	public String showRatPage() {
 		return "rat";
-	}
-	
-	@GetMapping("/login")
-	public String showLoginPage() {
-		return "login";
-	}
-	
-	@GetMapping("/newAccount")
-	public String showNewAccountPage() {
-		return "new_account";
 	}
 }

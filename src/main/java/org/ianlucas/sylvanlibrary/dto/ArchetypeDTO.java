@@ -2,8 +2,6 @@ package org.ianlucas.sylvanlibrary.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.SqlResultSetMapping;
-
 public class ArchetypeDTO implements Serializable{
 
 	/**

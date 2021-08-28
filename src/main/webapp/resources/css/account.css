@@ -1,14 +1,16 @@
 @charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@300&display=swap');
+
 body{
 	background-image: url("./../images/lightcommanders.jpg");
 	background-size: cover;
 }
 
 .item{
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: 40%;
+    margin-right: auto;
     display: flex;
-    width: 55%;
+    width: 20%;
     background-color: rgba(190, 190, 190, 65%);
     border-radius: 15px;
     font-size: 20px;
@@ -24,7 +26,29 @@ body{
     margin-top: -150px;
     border-radius: 100%;
     background-color: rgb(47, 47, 241);
-    background-image: url("./../images/penn.jpg");
+    background-image: url("./../images/Penn.jpg");
     background-size: 90%;
     background-repeat: no-repeat;
+}
+
+.account-container{
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+    width: 55%;
+	font-family: "Lexend";
+    background-color: rgba(190, 190, 190, 65%);
+	border-radius: 15px;
+}
+
+.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+}
+
+#passError, #passErrorBoogaloo{
+	color: rgb(215, 0, 0);
+	font-family: "Lexend";
 }

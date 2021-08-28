@@ -15,76 +15,91 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AccountController {
 	
+	/*
+	 * This controller is for the login, logout, and account pages of the website
+	 * Has the methods for making, changing, and deleting users
+	 * It does use a static field for the current user and I know that is bad practice
+	 */
+	
 	private AccountService accountService;
+	//I wanted to have keep an Account that the user would modify, but I am not sure how to do it outside of a static field
+	public static Account currentSession;
+	private String redirectToAccount;
 	
 	@Autowired
 	public AccountController(AccountService accountService) {
 		this.accountService = accountService;
+		redirectToAccount = "redirect:/account";
 	}
 	
 	@GetMapping("/account")
 	public String showAccountPage(Model model) {
-		model.addAttribute("UserAccount", new Account());
+		model.addAttribute("currentAccount", currentSession);
 		return "account";
 	}
 	
-	@PostMapping("/registerNewUser")
-	public String showRegisterNewUser(@Valid @ModelAttribute("newUser") Account newUser, 
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "account";
-		}
-		Account user = accountService.save(newUser);
-		System.out.println(user.getUsername());
-		return "redirect:/account";
-	}
-	
 	@PostMapping("/changeUsername")
-	public String attemptChangeUsername(@Valid @ModelAttribute("currentUser") Account currentUser, String newName,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "account";
-		}
-		Account user = accountService.findByUsername(currentUser.getUsername());
-		accountService.removeUser(currentUser);
+	public String attemptChangeUsername(String newName) {
+		Account user = accountService.findByUsername(currentSession.getUsername());
+		accountService.removeUser(currentSession);
 		user.setUsername(newName);
 		accountService.save(user);
-		return "redirect:/account";
+		return redirectToAccount;
 	}
 	
 	@PostMapping("/changePassword")
-	public String attemptChangePassword(@Valid @ModelAttribute("currentUser") Account currentUser, String newPass,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "redirect:/account";
-		}
-		Account user = accountService.findByUsername(currentUser.getUsername());
-		accountService.removeUser(currentUser);
+	public String attemptChangePassword(String newPass) {
+		Account user = accountService.findByUsername(currentSession.getUsername());
+		accountService.removeUser(user);
 		user.setUsername(newPass);
 		accountService.save(user);
-		return "redirect:/account";
-	}
-	
-	@PostMapping("/changePicture")
-	public String attemptChangePicture(@Valid @ModelAttribute("currentUser") Account currentUser, String newPic,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "redirect:/account";
-		}
-		Account user = accountService.findByUsername(currentUser.getUsername());
-		accountService.removeUser(currentUser);
-		user.setUsername(newPic);
-		accountService.save(user);
-		return "redirect:/account";
+		return redirectToAccount;
 	}
 	
 	@PostMapping("/removeAccount")
-	public String deleteAccount(@Valid @ModelAttribute("currentUser") Account currentUser,
+	public String deleteAccount() {
+		accountService.removeUser(currentSession);
+		return "logout";
+	}
+	
+	@GetMapping("/newAccount")
+	public String showNewAccountPage(Model model) {
+		model.addAttribute("Account", new Account());
+		return "new_account";
+	}
+	
+	@PostMapping("/createAccount")
+	public String makeAccount(@Valid @ModelAttribute("Account") Account newUser, 
 			BindingResult result) {
 		if (result.hasErrors()) {
-			return "account";
+			return "new_account";
 		}
-		accountService.removeUser(currentUser);
-		return "redirect:/account";
+		if (accountService.findByUsername(newUser.getUsername()) == null) {
+			accountService.save(newUser);
+			return "login";
+		}
+		return "redirect:/new_account";
+	}
+	
+	@GetMapping("/login")
+	public String showLoginPage() {
+		return "login";
+	}
+	
+	@PostMapping("/loginToUser")
+	public String loggingIn(String username, String password) {
+		Account storedUser = accountService.findByUsername(username);
+		System.out.println(username);
+		if (storedUser != null && password.equals(storedUser.getPassword())) {
+				currentSession = storedUser;
+				return "main";	
+		}
+		return "redirect:/login";
+	}
+	
+	@GetMapping("/logout")
+	public static String logOut() {
+		currentSession = null;
+		return "logout";
 	}
 }

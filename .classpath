@@ -53,5 +53,49 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-crypto/5.5.1/spring-security-crypto-5.5.1.jar" sourcepath="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-crypto/5.5.1/spring-security-crypto-5.5.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="spring-security-crypto-5.5.1.jar"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-crypto/5.5.1/spring-security-crypto-5.5.1-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="org.springframework.security"/>
+			<attribute name="maven.artifactId" value="spring-security-crypto"/>
+			<attribute name="maven.version" value="5.5.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-config/5.5.1/spring-security-config-5.5.1.jar" sourcepath="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-config/5.5.1/spring-security-config-5.5.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="spring-security-config-5.5.1.jar"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-config/5.5.1/spring-security-config-5.5.1-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="org.springframework.security"/>
+			<attribute name="maven.artifactId" value="spring-security-config"/>
+			<attribute name="maven.version" value="5.5.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-web/5.2.2.RELEASE/spring-security-web-5.2.2.RELEASE.jar" sourcepath="C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-web/5.2.2.RELEASE/spring-security-web-5.2.2.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/org/springframework/security/spring-security-web/5.2.2.RELEASE/spring-security-web-5.2.2.RELEASE-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="org.springframework.security"/>
+			<attribute name="maven.artifactId" value="spring-security-web"/>
+			<attribute name="maven.version" value="5.2.2.RELEASE"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Lucas2/.m2/repository/org/mockito/mockito-core/3.11.2/mockito-core-3.11.2.jar" sourcepath="C:/Users/Lucas2/.m2/repository/org/mockito/mockito-core/3.11.2/mockito-core-3.11.2-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Lucas2/.m2/repository/org/mockito/mockito-core/3.11.2/mockito-core-3.11.2-javadoc.jar!/"/>
+			<attribute name="maven.groupId" value="org.mockito"/>
+			<attribute name="maven.artifactId" value="mockito-core"/>
+			<attribute name="maven.version" value="3.11.2"/>
+			<attribute name="maven.scope" value="test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

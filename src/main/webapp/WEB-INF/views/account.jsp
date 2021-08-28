@@ -15,31 +15,26 @@
     <div class="userpic">
     </div>
     <div class="item">
-    	<h2>Username to be implemented</h2>
+    	<h2>Welcome, ${currentAccount.username}!</h2>
     </div>
     <div class="item">
-    	<form:form action="./changeUsername" method="post" modelAttribute="UserAccount">
+    	<form action="./changeUsername" method="post">
     		<label>Change Username:</label>
-    		<form:input type="text" path="username" required="true" />
-    		<form:errors cssClass="error" />
-    		<form:button>Submit</form:button>
-    	</form:form>
+    		<input type="text" required/>
+    		<input type="submit" value="Change"/>
+    	</form>
     </div>
     <div class="item">
-    	<form:form action="changePassword" method="post" modelAttribute="UserAccount">
+    	<form action="./changePassword" method="post">
     		<label>Change Password:</label>
-    		<form:input type="text" path="password" required="true" />
-    		<form:errors cssClass="error" />
-    		<form:button>Submit</form:button>
-    	</form:form>
+    		<input type="text"  required/>
+    		<input type="submit" value="Change"/>
+    	</form>
     </div>
     <div class="item">
-    	<form:form action="changePicture" method="post" modelAttribute="UserAccount">
-    		<label>Change Profile Picture:</label>
-    		<form:input type="text" required="true" placeholder="Enter a Url" path="picUrl" />
-    		<form:errors cssClass="error" />
-    		<form:button>Submit</form:button>
-    	</form:form>
+    	<form action="./removeAccount" method="post">
+    		<input type="submit" value="DELETE ACCOUNT"/>
+    	</form>
     </div>
 </body>
 </html>

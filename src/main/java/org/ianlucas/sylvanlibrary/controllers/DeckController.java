@@ -1,5 +1,11 @@
 package org.ianlucas.sylvanlibrary.controllers;
 
+/*
+ * This controller is for submitting decks to the database
+ * It probably could have been wrapped in ContentController, but I like it split 
+ * like this, where they each have their own controller
+ */
+
 import javax.validation.Valid;
 
 import org.ianlucas.sylvanlibrary.entities.Deck;

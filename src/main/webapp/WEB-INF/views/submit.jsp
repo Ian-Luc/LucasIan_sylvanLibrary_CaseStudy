@@ -18,5 +18,8 @@
 	<div class="item">
 		<a href="./submitContents">Add Cards to a Deck</a>
 	</div>
+	<div class="item">
+		<a href="./submitCardDetails">Add Card Information</a>
+	</div>
 </body>
 </html>

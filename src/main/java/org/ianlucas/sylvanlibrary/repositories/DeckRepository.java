@@ -10,10 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DeckRepository extends JpaRepository<Deck, Integer> {
 	
-	List<Deck> findByPlayerName(String player);
-	List<Deck> findByArchetype(String archetype);
-	Deck findByDeckId(Integer id);
-	Deck findByDeckNameAndPlayerName(String deckName, String playerName);
+	Deck findByDeckId(int id);
 	
-	List<Deck> findByFormatAndContentCardContaining(String format, String card);
+	@Query("SELECT d "
+			+ "FROM Deck d JOIN Content c ON d.deckId = c.deck "
+			+ "WHERE d.format = ?1 AND c.card = ?2 AND d.deckId = c.deck")
+	List<Deck> findListByThings(String format, String card);
+	
 }

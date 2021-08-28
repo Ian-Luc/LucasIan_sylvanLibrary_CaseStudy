@@ -23,12 +23,11 @@ public class Cards {
 	
 	public Cards() { }
 	
-	public Cards(String name, String type, String color, String cost, String imgSource) {
+	public Cards(String name, String type, String color, String cost) {
 		this.name = name;
 		this.type = type;
 		this.color = color;
 		this.cost = cost;
-		this.imgSource = imgSource;
 	}
 
 	public String getName() {

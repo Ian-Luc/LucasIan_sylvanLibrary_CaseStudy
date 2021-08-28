@@ -1,49 +1,58 @@
 @charset "ISO-8859-1";
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Roboto:wght@300&display=swap');
-        .usericon{
-            height: 125px;
-            width: 130px;
-            margin-left: -20%;
-            margin-right: auto;
-            margin-top: -150px;
-            border-radius: 100%;
-            background-color: rgb(47, 47, 241);
-            background-image: url("./../images/loginicon.png");
-            background-size: 90%;
-            background-repeat: no-repeat;
-        }
-        .innerscan{
-            padding-top: 0%;
-        }
-        .center{
-            height: 240px;
-            width: 300px;
-            background-color: rgba(190, 190, 190, 65%);
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 15%;
-            border-radius: 15px;
-            font-family: "Lexend";
-        }
-        .topitem{
-            font-size: 28px;
-            margin-top: -50px;
-        }
-        .passwordlink{
-            font-size: 18px;
-        }
-        nav.accountinfo{
-            margin-left: 50px;
-        }
-        .center div{
-            text-align: center;
-            padding-bottom: 5px;
-        }
-        input{
-            text-align: center;
-            border-radius: 10px;
-        }
-        body{
-            background-image: url("./../images/lightcommanders.png");
-            background-size: 100%;
-        }
+
+.usericon{
+    height: 125px;
+    width: 130px;
+    margin-left: -20%;
+    margin-right: auto;
+    margin-top: -150px;
+    border-radius: 100%;
+    background-color: rgb(47, 47, 241);
+    background-image: url("./../images/Penn.jpg");
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+
+.innerscan{
+    padding-top: 0%;
+}
+
+.center{
+    height: 240px;
+    width: 300px;
+    background-color: rgba(190, 190, 190, 65%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    border-radius: 15px;
+    font-family: "Lexend";
+}
+
+.topitem{
+    font-size: 28px;
+    margin-top: -50px;
+}
+
+.passwordlink{
+    font-size: 18px;
+}
+
+nav.accountinfo{
+    margin-left: 50px;
+}
+
+.center div{
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+input{
+    text-align: center;
+    border-radius: 10px;
+}
+
+body{
+    background-image: url("./../images/lightcommanders.png");
+    background-size: cover;
+ }

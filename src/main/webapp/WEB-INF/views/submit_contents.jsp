@@ -13,6 +13,9 @@
 <body>
 	<%@ include file="header.html" %>
 	<div>
+	<div class="item">
+   		<h3>Add Card to Deck</h3>
+   	</div>
     <form action="./registerCard" method="post" accept-charset="utf-8">
 	    <div class="item">
 	    	<label>Deck ID: </label>

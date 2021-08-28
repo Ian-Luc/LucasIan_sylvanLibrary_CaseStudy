@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("org.ianlucas.sylvanlibrary")
+@ComponentScan("org.getapagetoload")
 public class RootAppConfig {
 
 }

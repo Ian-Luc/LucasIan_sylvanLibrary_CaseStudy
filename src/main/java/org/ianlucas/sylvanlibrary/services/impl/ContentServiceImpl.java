@@ -3,13 +3,9 @@ package org.ianlucas.sylvanlibrary.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
-import org.ianlucas.sylvanlibrary.dto.SearchDTO;
 import org.ianlucas.sylvanlibrary.dto.TotalCardDTO;
-import org.ianlucas.sylvanlibrary.entities.Deck;
 import org.ianlucas.sylvanlibrary.entities.Content;
 import org.ianlucas.sylvanlibrary.repositories.ContentRepository;
-import org.ianlucas.sylvanlibrary.repositories.DeckRepository;
 import org.ianlucas.sylvanlibrary.services.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,30 +20,26 @@ public class ContentServiceImpl implements ContentService {
 		this.contentRepository = contentRepository;
 		
 	}
-
+	
 	@Override
 	public Content save(Content deck) {
 		return contentRepository.save(deck);
 	}
-
+	
+	//Core method for the Search by Archetype function: returns the TotalCardDTOs to be read by the Search Controller
 	@Override
-	public List<TotalCardDTO> findTotalQuantityByDeck(String archetype, String format) {
-		
-		return contentRepository.findTotalQuantityByDeck(archetype, format);
-	}
-
-//	@Override
-//	public List<ArchetypeDTO> findArchetypeByCardName(String card, String format) {
-//		return contentRepository.findArchetypeByCardName(card, format);
-//	}
-
-	@Override
-	public List<TotalCardDTO> findAllCards(String card, String format) {
-		return contentRepository.findAllCards(card, format);
-	}
-
-	@Override
-	public List<ArchetypeDTO> findAllArchetypes(String archetype, String format) {
-		return contentRepository.findAllArchetype(archetype, format);
+	public List<TotalCardDTO> findLowCards(String archetype, String format) {
+		List<TotalCardDTO> dtoList = new ArrayList<>();
+		System.out.println(contentRepository.findCardsIn(archetype, format).size());
+		for (String card : contentRepository.findCardsIn(archetype, format)) {
+			TotalCardDTO addDto = new TotalCardDTO();
+			String[] data = card.split(",");
+			addDto.setCard(data[0].trim());
+			addDto.setQuantity(Integer.parseInt(data[1].trim()));
+			System.out.println(data[0].trim());
+			System.out.println(data[1].trim());
+			dtoList.add(addDto);
+		}
+		return dtoList;
 	}
 }

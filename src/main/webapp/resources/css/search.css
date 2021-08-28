@@ -10,11 +10,16 @@ body{
     margin-right:auto;
     width: 55%;
     display: flex;
+    height: auto;
     background-color: rgba(190, 190, 190, 65%);
     border-radius: 15px;
     font-size: 20px;
     font-family: "Lexend";
     margin-bottom: 20px;
+    padding-top: auto;
+	padding-bottom: auto;
+	padding-right:auto;
+	padding-left: auto;
 }
 
 .searchparameters{
@@ -22,11 +27,14 @@ body{
     margin-right:auto;
     display: flex;
     width: 55%;
+    height: 64px;
     background-color: rgba(190, 190, 190, 65%);
     border-radius: 15px;
     font-size: 20px;
     font-family: "Lexend";
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    padding-top: auto;
+	padding-bottom: auto;
 }
 
 .searchparameters h2{
@@ -51,11 +59,13 @@ select{
 }
 
 select:hover{
-    background-color: steelblue;
+    background-color: rgb(240, 200, 200);
 }
 
 #format{
     width: 100px;
+    padding-top: auto;
+    padding-bottom: auto;
 }
 
 #archetype{
@@ -81,6 +91,8 @@ input{
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
+    padding-top: auto;
+    padding-bottom: auto;
 }
 
 .returnitems, .searchresults{

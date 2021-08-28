@@ -1,16 +1,21 @@
 package com.sylvan.test;
 
+/*
+ * This checks to make sure the find cards function is properly spliting the results
+ * The trim() function doesn't work quite as intended here since the paranthesis
+ * aren't part of a search on the DB and instead from Mockito. 
+ */
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ianlucas.sylvanlibrary.config.WebAppConfig;
-import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
-import org.ianlucas.sylvanlibrary.entities.Deck;
-import org.ianlucas.sylvanlibrary.entities.Content;
-import org.ianlucas.sylvanlibrary.services.ContentService;
+import org.ianlucas.sylvanlibrary.repositories.ContentRepository;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -24,52 +29,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ContentServiceTest {
 	
-	ContentService contentService;
+	private static ContentRepository contentRepository;
 	
-	@Autowired
-	public ContentServiceTest(ContentService contentService) {
-		this.contentService = contentService;
+	@BeforeAll
+	static void setup(){
+		contentRepository = Mockito.mock(ContentRepository.class);
 	}
 	
-//	@Test
-//	void testContentAddAndFindByCard() {
-//		DeckContent deck = new DeckContent();
-//		deck.setCard("Phyrexian Dreadnought");
-//		deck.setDeck(null);
-//		deck.setQuantity(1);
-//		DeckContent savedDeck = contentService.save(deck);
-//		List<DeckContent> foundDecks = contentService.findByCard("Phyrexian Dreadnought");
-//		DeckContent retrievedDeck = foundDecks.get(0);
-//		System.out.println(retrievedDeck.getCard());
-//		assertEquals(deck.getCard(), retrievedDeck.getCard());
-//	}
-//	
-//	@Test
-//	void testFindByDeck() {
-//		DeckContent deck = new DeckContent();
-//		deck.setCard("Ponder");
-//		deck.setDeck(null);
-//		deck.setQuantity(4);
-//		DeckContent savedDeck = contentService.save(deck);
-//		List<DeckContent> foundDecks = contentService.findByDeck(999);
-//		assertEquals(savedDeck.getId(), foundDecks.get(0).getId());
-//	}
-//	
-//	@Test
-//	void testFindByCardAndDeck() {
-//		DeckContent deck = new DeckContent();
-//		deck.setCard("Ichorid");
-//		deck.setDeck(null);
-//		deck.setQuantity(4);
-//		DeckContent savedDeck = contentService.save(deck);
-//		DeckContent foundDeck = contentService.findByCardAndDeck("Ichorid", 500);
-//		assertEquals(savedDeck, foundDeck);
-//	}
-	
 	@Test
-	void testFindTop10ByCardName() {
-		List<ArchetypeDTO> dtoList = contentService.findTop10ArchetypeDTO("Brainstorm", "Legacy");
-		System.out.println(dtoList.size());
-		assertEquals(3, dtoList.size());
+	void testDbStringReturn() {
+		Mockito.when(contentRepository.findCardsIn("Doomsday", "Legacy")).thenReturn(
+				new ArrayList<String>(List.of("(Ponder,4)", "(Doomsday,4)","(Force of Will,4)", "(Thassa's Oracle,1)")));
+		List<String> result = contentRepository.findCardsIn("Doomsday", "Legacy");
+		
+		for (String piece : result) {
+			String[] data = piece.split(",");
+			assertEquals(2, data.length);
+			System.out.println(data[0].trim());
+			System.out.println(data[1].trim());
+		}
+		
 	}
 }

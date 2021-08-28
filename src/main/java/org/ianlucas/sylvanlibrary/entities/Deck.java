@@ -3,32 +3,27 @@ package org.ianlucas.sylvanlibrary.entities;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ColumnResult;
-import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.SqlResultSetMapping;
 import javax.persistence.Table;
-
-import org.ianlucas.sylvanlibrary.dto.ArchetypeDTO;
 
 @Entity
 @Table(name = "deck")
-@SqlResultSetMapping(name = "findTop10ByFormatAndContentCard",
-		classes = {
-			@ConstructorResult(targetClass = ArchetypeDTO.class,
-					columns = {@ColumnResult(name = "name"), 
-							@ColumnResult(name = "playerName"), 
-							@ColumnResult(name = "format"),
-							@ColumnResult(name = "archetype")
-			})})
+//@SqlResultSetMapping(name = "findTop10ByFormatAndContentCard",
+//		classes = {
+//			@ConstructorResult(targetClass = ArchetypeDTO.class,
+//					columns = {@ColumnResult(name = "name"), 
+//							@ColumnResult(name = "playerName"), 
+//							@ColumnResult(name = "format"),
+//							@ColumnResult(name = "archetype")
+//			})})
 public class Deck {
 	
 	@Id
-	@Column(name = "deck_id")
+	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer deckId;
 	@Column(name = "name")
