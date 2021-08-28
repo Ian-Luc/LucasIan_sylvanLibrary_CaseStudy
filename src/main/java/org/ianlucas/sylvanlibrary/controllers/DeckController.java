@@ -28,11 +28,6 @@ public class DeckController {
 		this.deckService = deckService;
 	}
 	
-	@GetMapping("/submit")
-	public String showSubmitPage() {
-		return "submit";
-	}
-	
 	@GetMapping("/submitDeck")
 	public String showSubmitDeckPage(Model model) {
 		model.addAttribute("deckCatalog", new Deck());

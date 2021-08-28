@@ -32,6 +32,12 @@ public class AccountController {
 		redirectToAccount = "redirect:/account";
 	}
 	
+	@GetMapping("/submit")
+	public String showSubmitPage() {
+		if (currentSession == null) return "login";
+		return "submit";
+	}
+	
 	@GetMapping("/account")
 	public String showAccountPage(Model model) {
 		model.addAttribute("currentAccount", currentSession);
